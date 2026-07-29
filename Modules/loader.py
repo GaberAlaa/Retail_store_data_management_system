@@ -7,7 +7,7 @@ from config import INCOMING_FOLDER ,RAW_FOLDER
 file_path = INCOMING_FOLDER/"BR01_2026-07-22.csv"
 
 def divied_into_dfs(df : pd.DataFrame):
-    transactions_df = df[["TransactionID", "ProductID", "BranchID","CashierID","Quantity","UnitPrice","DiscountPercent","PaymentMethod","TransactionTime","TransactionDate"]]
+    transactions_df = df[["TransactionID", "CustomerID", "ProductID", "BranchID","CashierID","Quantity","UnitPrice","DiscountPercent","PaymentMethod","TransactionTime","TransactionDate"]]
     customers_df = df[["CustomerID", "CustomerFirstName", "CustomerLastName","Gender","Phone","Email","LoyaltyTier"]]
     branchs_df = df[["BranchID", "BranchName", "BranchCity"]]
     products_df = df[["ProductID", "ProductName", "Category","Brand"]]
