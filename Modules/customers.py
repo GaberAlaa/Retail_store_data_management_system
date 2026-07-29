@@ -11,12 +11,6 @@ EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
 VALID_TIERS = {"gold": "Gold", "silver": "Silver", "not a member": "Not a Member"}
 
-def trim_whitespace(df):
-    for col in df.select_dtypes(include=["object", "str"]).columns:
-        df[col] = df[col].str.strip()
-    return df
-
-
 def fix_names(df):
     df["CustomerFirstName"] = df["CustomerFirstName"].str.title()
     df["CustomerLastName"] = df["CustomerLastName"].str.title()
@@ -72,7 +66,7 @@ def keep_best_duplicate(df, issues):
 
 
 def clean_customers(df, issues):
-    df = trim_whitespace(df)
+    df = df.drop_duplicates()
     df = fix_names(df)
     df = fix_loyalty_tier(df)
     df = flag_quality(df)
