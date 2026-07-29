@@ -1,0 +1,11 @@
+
+from pathlib import Path
+
+
+
+ROOT_FOLDER = Path.cwd()
+DATA_FOLDER = ROOT_FOLDER /"Data"
+INCOMING_FOLDER =  DATA_FOLDER / "Incoming"
+PROCESSED_FOLDER = DATA_FOLDER / "Processed"
+REJECTED_FOLDER = DATA_FOLDER / "Rejected"
+RAW_FOLDER = DATA_FOLDER / "Raw"
