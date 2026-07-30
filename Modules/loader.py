@@ -27,6 +27,9 @@ def trim_whitespace(df):
         df[col] = df[col].str.strip()
     return df
 
+def add_to_issues_list(status, table, string, issues_list):
+    issues_list.append({"status": status, "table": table, "message": string})
+
 full_df = read_branch_csv(file_path)
 full_df = trim_whitespace(full_df)
 copy_to_raw(file_path)

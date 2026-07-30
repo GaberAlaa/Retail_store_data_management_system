@@ -1,7 +1,7 @@
 import pandas as pd
 import loader
 import re
-
+from loader import add_to_issues_list 
 
 df = loader.customers_df
 customers_issues = []
@@ -10,6 +10,16 @@ EGYPTIAN_PHONE_PATTERN = re.compile(r"^01\d{9}$")
 EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
 VALID_TIERS = {"gold": "Gold", "silver": "Silver", "not a member": "Not a Member"}
+
+
+def remove_missing_customer_id(df, issues):
+
+    missing = df["CustomerID"].isna().sum()
+
+    if missing:
+        add_to_issues_list("Major","Customers",f"Removed {missing} rows with missing CustomerID.",issues)
+
+    return df.dropna(subset=["CustomerID"])
 
 def fix_names(df):
     df["CustomerFirstName"] = df["CustomerFirstName"].str.title()
@@ -46,11 +56,12 @@ def log_bad_rows(df, issues):
     bad_rows = df[df["DataQuality"] == "Bad"]
     for _, row in bad_rows.iterrows():
         if not is_valid_phone(row["Phone"]):
-            issues.append(f"Bad phone: {row['CustomerID']} -> {row['Phone']}")
+            add_to_issues_list("Minor","Customers",f"Bad phone: {row['CustomerID']} -> {row['Phone']}",issues)
         if not is_valid_email(row["Email"]):
-            issues.append(f"Bad email: {row['CustomerID']} -> {row['Email']}")
+            add_to_issues_list("Minor","Customers",f"Bad email: {row['CustomerID']} -> {row['Email']}",issues)
         if pd.isna(row["LoyaltyTier"]):
-            issues.append(f"Invalid loyalty tier: {row['CustomerID']}")
+            add_to_issues_list("Minor","Customers",f"Invalid loyalty tier: {row['CustomerID']}",issues)
+
 
 
 def keep_best_duplicate(df, issues):
@@ -60,13 +71,14 @@ def keep_best_duplicate(df, issues):
     duplicates = df[df.duplicated("CustomerID", keep="first")]
 
     for customer_id in duplicates["CustomerID"]:
-        issues.append(f"Removed duplicate customer: {customer_id}")
+        add_to_issues_list("Minor","Customers",f"Removed duplicate customer: {customer_id}",issues)
 
     return df.drop_duplicates("CustomerID", keep="first")
 
 
 def clean_customers(df, issues):
     df = df.drop_duplicates()
+    df = remove_missing_customer_id(df, issues)
     df = fix_names(df)
     df = fix_loyalty_tier(df)
     df = flag_quality(df)

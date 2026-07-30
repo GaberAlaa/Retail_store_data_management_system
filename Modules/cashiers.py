@@ -1,6 +1,6 @@
 import pandas as pd
 import loader
-
+from loader import add_to_issues_list 
 
 df = loader.cashiers_df
 cashiers_issues = []
@@ -11,7 +11,7 @@ def remove_missing_cashier_id(df, issues):
     missing = df["CashierID"].isna().sum()
 
     if missing:
-        issues.append(f"Removed {missing} rows with missing CashierID.")
+        add_to_issues_list("Major","Cashiers",f"Removed {missing} rows with missing CashierID.",issues)
 
     return df.dropna(subset=["CashierID"])
 
@@ -25,7 +25,8 @@ def flag_quality(df):
 def log_bad_rows(df, issues):
     bad_rows = df[df["DataQuality"] == "Bad"]
     for _, row in bad_rows.iterrows():
-        issues.append(f"Missing CashierName: {row['CashierID']}")
+        add_to_issues_list("Minor","Cashiers",f"Missing CashierName: {row['CashierID']}",issues)
+
  
  
 def keep_best_duplicate(df, issues):
@@ -34,14 +35,14 @@ def keep_best_duplicate(df, issues):
  
     duplicates = df[df.duplicated("CashierID", keep="first")]
     for cashier_id in duplicates["CashierID"]:
-        issues.append(f"Removed duplicate cashier: {cashier_id}")
+        add_to_issues_list("Minor","Cashiers",f"Removed duplicate cashier: {cashier_id}",issues)
  
     return df.drop_duplicates("CashierID", keep="first")
  
  
 def clean_cashiers(df, issues):
     df = df.drop_duplicates()
-    df = remove_missing_cashier_id(df,cashiers_issues)
+    df = remove_missing_cashier_id(df,issues)
     df = flag_quality(df)
     df = keep_best_duplicate(df, issues)
     log_bad_rows(df, issues)

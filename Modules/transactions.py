@@ -2,6 +2,7 @@ import re
 import pandas as pd
 from datetime import datetime
 import loader
+from loader import add_to_issues_list 
 
 df = loader.transactions_df
 transactions_issues = []
@@ -29,7 +30,7 @@ def trim_whitespace(df):
 def remove_missing_transaction_id(df, issues):
     missing = df["TransactionID"].isna().sum()
     if missing:
-        issues.append(f"Removed {missing} rows with missing TransactionID.")
+        add_to_issues_list("Major","Transactions",f"Removed {missing} rows with missing TransactionID.",issues)
     return df.dropna(subset=["TransactionID"])
  
  
@@ -64,7 +65,7 @@ def standardize_dates(df):
 def remove_duplicate_transactions(df, issues):
     duplicates = df[df.duplicated("TransactionID", keep="first")]
     for transaction_id in duplicates["TransactionID"]:
-        issues.append(f"Removed duplicate transaction: {transaction_id}")
+        add_to_issues_list("Minor", "Transactions", f"Removed duplicate transaction: {transaction_id}", issues)
     return df.drop_duplicates("TransactionID", keep="first")
  
  
@@ -94,29 +95,30 @@ def log_bad_rows(df, issues):
         transaction_id = row["TransactionID"]
 
         if pd.isna(row["CustomerID"]):
-            issues.append(f"Missing CustomerID: {transaction_id}")
+            add_to_issues_list("Major","Transactions",f"Missing CustomerID: {transaction_id}",issues)
         if pd.isna(row["ProductID"]):
-            issues.append(f"Missing ProductID: {transaction_id}")
+            add_to_issues_list("Major","Transactions",f"Missing ProductID: {transaction_id}",issues)
         if pd.isna(row["BranchID"]):
-            issues.append(f"Missing BranchID: {transaction_id}")
+            add_to_issues_list("Major","Transactions",f"Missing BranchID: {transaction_id}",issues)
         if pd.isna(row["CashierID"]):
-            issues.append(f"Missing CashierID: {transaction_id}")
+            add_to_issues_list("Major","Transactions",f"Missing CashierID: {transaction_id}",issues)
 
         if pd.isna(row["PaymentMethod"]):
-            issues.append(f"Invalid PaymentMethod: {transaction_id}")
+            add_to_issues_list("Minor","Transactions",f"Invalid PaymentMethod: {transaction_id}",issues)
+
         if pd.isna(row["Quantity"]) or row["Quantity"] <= 0:
-            issues.append(f"Invalid Quantity: {transaction_id} -> {row['Quantity']}")
+            add_to_issues_list("Minor","Transactions",f"Invalid Quantity: {transaction_id} -> {row['Quantity']}",issues)
         if pd.isna(row["UnitPrice"]) or row["UnitPrice"] <= 0:
-            issues.append(f"Invalid UnitPrice: {transaction_id} -> {row['UnitPrice']}")
+            add_to_issues_list("Minor","Transactions",f"Invalid UnitPrice: {transaction_id} -> {row['UnitPrice']}",issues)
         if pd.isna(row["DiscountPercent"]) or not (0 <= row["DiscountPercent"] <= 20):
-            issues.append(f"Invalid DiscountPercent: {transaction_id} -> {row['DiscountPercent']}")
+            add_to_issues_list("Minor","Transactions",f"Invalid DiscountPercent: {transaction_id} -> {row['DiscountPercent']}",issues)
         if pd.isna(row["TransactionDate"]):
-            issues.append(f"Unparseable TransactionDate: {transaction_id}")
+            add_to_issues_list("Minor","Transactions",f"Unparseable TransactionDate: {transaction_id}",issues)
         if not (isinstance(row["TransactionTime"], str) and TIME_PATTERN.match(row["TransactionTime"])):
-            issues.append(f"Invalid TransactionTime: {transaction_id} -> {row['TransactionTime']}")
+            add_to_issues_list("Minor","Transactions",f"Invalid TransactionTime: {transaction_id} -> {row['TransactionTime']}",issues)
         if pd.isna(row["PaymentMethod"]):
-            issues.append(f"Invalid PaymentMethod: {transaction_id}")
- 
+            add_to_issues_list("Minor","Transactions",f"Invalid PaymentMethod: {transaction_id}",issues)
+
  
 def clean_transactions(df, issues):
     df = trim_whitespace(df)

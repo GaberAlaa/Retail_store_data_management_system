@@ -1,5 +1,6 @@
 import pandas as pd
 import loader
+from loader import add_to_issues_list 
 
 
 df = loader.products_df
@@ -11,7 +12,7 @@ def remove_missing_product_id(df, issues):
     missing = df["ProductID"].isna().sum()
 
     if missing:
-        issues.append(f"Removed {missing} rows with missing ProductID.")
+        add_to_issues_list("Major","Products",f"Removed {missing} rows with missing ProductID.",issues)
 
     return df.dropna(subset=["ProductID"])
 
@@ -33,11 +34,11 @@ def log_bad_rows(df, issues):
     bad_rows = df[df["DataQuality"] == "Bad"]
     for _, row in bad_rows.iterrows():
         if pd.isna(row["ProductName"]):
-            issues.append(f"Missing ProductName: {row['ProductID']}")
+            add_to_issues_list("Minor","Products",f"Missing ProductName: {row['ProductID']}",issues)
         if pd.isna(row["Category"]):
-            issues.append(f"Missing Category: {row['ProductID']}")
+            add_to_issues_list("Minor","Products",f"Missing Category: {row['ProductID']}",issues)
         if pd.isna(row["Brand"]):
-            issues.append(f"Missing Brand: {row['ProductID']}")
+            add_to_issues_list("Minor","Products",f"Missing Brand: {row['ProductID']}",issues)
  
  
 def keep_best_duplicate(df, issues):
@@ -45,7 +46,7 @@ def keep_best_duplicate(df, issues):
  
     duplicates = df[df.duplicated("ProductID", keep="first")]
     for product_id in duplicates["ProductID"]:
-        issues.append(f"Removed duplicate product: {product_id}")
+        add_to_issues_list("Minor","Products",f"Removed duplicate product: {product_id}",issues)
  
     return df.drop_duplicates("ProductID", keep="first")
  

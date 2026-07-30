@@ -1,6 +1,6 @@
 import pandas as pd
 import loader
-
+from loader import add_to_issues_list 
 
 df = loader.branchs_df
 branchs_issues = []
@@ -10,9 +10,9 @@ def check_single_branch_id(df, issues):
     branch_ids = df["BranchID"].dropna().unique()
  
     if len(branch_ids) == 0:
-        issues.append("No valid BranchID found in file")
+        add_to_issues_list("Major","Branches","No valid BranchID found in file",issues)
     elif len(branch_ids) > 1:
-        issues.append(f"File contains multiple BranchIDs: {list(branch_ids)}")
+        add_to_issues_list("Major","Branches",f"File contains multiple BranchIDs: {list(branch_ids)}",issues)
  
 def find_most_recurring_branch(df):
     result = (
