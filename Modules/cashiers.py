@@ -1,9 +1,8 @@
 import pandas as pd
-import loader
-from loader import add_to_issues_list 
+from Modules import loader
+from Modules.loader import add_to_issues_list
 
-df = loader.cashiers_df
-cashiers_issues = []
+
 
 
 def remove_missing_cashier_id(df, issues):
@@ -49,10 +48,15 @@ def clean_cashiers(df, issues):
     return df
 
 
-df.info()
 
-cleaned_cashiers_df = clean_cashiers(df,cashiers_issues)
-cleaned_cashiers_df.info()
 
-for issue in cashiers_issues:
-    print(issue)
+if __name__ == "__main__":
+    df = loader.cashiers_df
+    cashiers_issues = []
+
+    df.info()
+    cleaned_cashiers_df = clean_cashiers(df,cashiers_issues)
+    cleaned_cashiers_df.info()
+
+    for issue in cashiers_issues:
+        print(issue)

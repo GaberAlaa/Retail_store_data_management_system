@@ -1,10 +1,7 @@
 import pandas as pd
-import loader
 import re
-from loader import add_to_issues_list 
-
-df = loader.customers_df
-customers_issues = []
+from Modules import loader
+from Modules.loader import add_to_issues_list
 
 EGYPTIAN_PHONE_PATTERN = re.compile(r"^01\d{9}$")
 EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
@@ -86,7 +83,10 @@ def clean_customers(df, issues):
     log_bad_rows(df, issues)
     return df
 
-cleaned_customers_df  = clean_customers(loader.customers_df,customers_issues)
-cleaned_customers_df.info()
-for issue in customers_issues:
-    print(issue)
+if __name__ == "__main__":
+    df = loader.customers_df
+    customers_issues = []
+    cleaned_customers_df  = clean_customers(loader.customers_df,customers_issues)
+    cleaned_customers_df.info()
+    for issue in customers_issues:
+        print(issue)
