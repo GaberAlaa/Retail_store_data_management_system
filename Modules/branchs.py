@@ -1,10 +1,7 @@
 import pandas as pd
-import loader
-from loader import add_to_issues_list 
+from Modules import loader
+from Modules.loader import add_to_issues_list
 
-df = loader.branchs_df
-branchs_issues = []
- 
 def check_single_branch_id(df, issues):
 
     branch_ids = df["BranchID"].dropna().unique()
@@ -34,8 +31,10 @@ def clean_branches(df, issues):
     df = find_most_recurring_branch(df)
     return df
 
-
-cleaned_df = clean_branches(df,branchs_issues)
-print(cleaned_df.head())
-for issue in branchs_issues:
-    print(issue)
+if __name__ == "__main__":
+    df = loader.branchs_df
+    branchs_issues = []
+    cleaned_df = clean_branches(df,branchs_issues)
+    print(cleaned_df.head())
+    for issue in branchs_issues:
+        print(issue)

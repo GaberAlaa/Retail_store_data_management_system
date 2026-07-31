@@ -1,11 +1,10 @@
 import re
 import pandas as pd
 from datetime import datetime
-import loader
-from loader import add_to_issues_list 
+from Modules import loader
+from Modules.loader import add_to_issues_list
 
-df = loader.transactions_df
-transactions_issues = []
+
 
  
 DATE_FORMATS = ["%Y-%m-%d", "%d/%m/%Y", "%m-%d-%Y", "%d-%b-%Y"]
@@ -67,8 +66,10 @@ def remove_duplicate_transactions(df, issues):
     for transaction_id in duplicates["TransactionID"]:
         add_to_issues_list("Minor", "Transactions", f"Removed duplicate transaction: {transaction_id}", issues)
     return df.drop_duplicates("TransactionID", keep="first")
- 
- 
+
+def replace_nulls(df):
+    return df.astype(object).where(pd.notna(df), None)
+
 def flag_quality(df):
     valid_product_id = df["ProductID"].notna()
     valid_branch_id = df["BranchID"].notna()
@@ -127,14 +128,20 @@ def clean_transactions(df, issues):
     df = standardize_payment_method(df)
     df = standardize_dates(df)
     df = remove_duplicate_transactions(df, issues)
+    df = replace_nulls(df)
     df = flag_quality(df)
     log_bad_rows(df, issues)
     return df
 
-df.info()
-cleaned_transactions_df = clean_transactions(df,transactions_issues)
-cleaned_transactions_df.info()
 
 
-for issue in transactions_issues:
-    print(issue)
+if __name__ == "__main__":
+    df = loader.transactions_df
+    transactions_issues = []
+
+    df.info()
+    cleaned_transactions_df = clean_transactions(df,transactions_issues)
+    cleaned_transactions_df.info()
+    
+    for issue in transactions_issues:
+        print(issue)

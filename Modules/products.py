@@ -1,10 +1,6 @@
 import pandas as pd
-import loader
-from loader import add_to_issues_list 
-
-
-df = loader.products_df
-products_issues = []
+from Modules import loader
+from Modules.loader import add_to_issues_list
 
 
 def remove_missing_product_id(df, issues):
@@ -60,8 +56,12 @@ def clean_products(df, issues):
     log_bad_rows(df, issues)
     return df
 
-df.info()
-cleaned_products_df = clean_products(df,products_issues)
-cleaned_products_df.info()
-for issue in products_issues:
-    print(issue)
+if __name__ == "__main__":
+    df = loader.products_df
+    products_issues = []
+    
+    df.info()
+    cleaned_products_df = clean_products(df,products_issues)
+    cleaned_products_df.info()
+    for issue in products_issues:
+        print(issue)
