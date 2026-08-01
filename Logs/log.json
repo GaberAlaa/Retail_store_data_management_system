@@ -1,0 +1,662 @@
+[
+  {
+    "file": "BR01_2026-07-22.csv",
+    "status": "Rejected",
+    "issues": [
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5322"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5006"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5130 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5277 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5124 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5269 -> 015316"
+      },
+      {
+        "status": "Major",
+        "table": "Products",
+        "message": "Removed 1 rows with missing ProductID."
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR01-20260722-0093"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR01-20260722-0079"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Invalid TransactionTime: BR01-20260722-0075 -> None"
+      },
+      {
+        "status": "Major",
+        "table": "Transactions",
+        "message": "Missing ProductID: BR01-20260722-0051"
+      },
+      {
+        "status": "Major",
+        "table": "Transactions",
+        "message": "Transaction BR01-20260722-0051 references a ProductID not found in Products table"
+      }
+    ]
+  },
+  {
+    "file": "BR02_2026-07-15.csv",
+    "status": "Processed",
+    "issues": [
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5245"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5176"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5340"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad email: C5013 -> islam.youssef824 [at] example.com"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5281 -> 011994951"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5139 -> 0156766"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad email: C5132 -> mahmoud.sabry861 [at] example.com"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5134 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5125 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Products",
+        "message": "Removed duplicate product: P2034"
+      },
+      {
+        "status": "Minor",
+        "table": "Products",
+        "message": "Removed duplicate product: P2029"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR02-20260715-0066"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR02-20260715-0086"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Invalid TransactionTime: BR02-20260715-0089 -> None"
+      }
+    ]
+  },
+  {
+    "file": "BR02_2026-07-16.csv",
+    "status": "Rejected",
+    "issues": [
+      {
+        "status": "Major",
+        "table": "Customers",
+        "message": "Removed 1 rows with missing CustomerID."
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5023"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5019 -> 0106627"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5181 -> 01091"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5133 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5312 -> 01285"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5112 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR02-20260716-0012"
+      },
+      {
+        "status": "Major",
+        "table": "Transactions",
+        "message": "Missing CustomerID: BR02-20260716-0039"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Invalid UnitPrice: BR02-20260716-0039 -> None"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Unparseable TransactionDate: BR02-20260716-0054"
+      },
+      {
+        "status": "Major",
+        "table": "Transactions",
+        "message": "Transaction BR02-20260716-0039 references a CustomerID not found in Customers table"
+      }
+    ]
+  },
+  {
+    "file": "BR02_2026-07-19.csv",
+    "status": "Rejected",
+    "issues": [
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5008"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5175"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5048"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad email: C5044 -> mona.kamal47 [at] example.com"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5051 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5302 -> 015497258"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5140 -> 0157490"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5305 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Products",
+        "message": "Removed duplicate product: P2028"
+      },
+      {
+        "status": "Major",
+        "table": "Cashiers",
+        "message": "Removed 1 rows with missing CashierID."
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR02-20260719-0041"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR02-20260719-0077"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Invalid Quantity: BR02-20260719-0061 -> None"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Invalid UnitPrice: BR02-20260719-0095 -> None"
+      },
+      {
+        "status": "Major",
+        "table": "Transactions",
+        "message": "Missing CashierID: BR02-20260719-0068"
+      },
+      {
+        "status": "Major",
+        "table": "Transactions",
+        "message": "Missing BranchID: BR02-20260719-0089"
+      },
+      {
+        "status": "Major",
+        "table": "Transactions",
+        "message": "Transaction BR02-20260719-0089 references a BranchID not found in Branches table"
+      },
+      {
+        "status": "Major",
+        "table": "Transactions",
+        "message": "Transaction BR02-20260719-0068 references a CashierID not found in Cashiers table"
+      }
+    ]
+  },
+  {
+    "file": "BR02_2026-07-23.csv",
+    "status": "Processed",
+    "issues": [
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5031"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5189"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad email: C5187 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5091 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5165 -> 01243"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5099 -> 0150567"
+      },
+      {
+        "status": "Minor",
+        "table": "Cashiers",
+        "message": "Removed duplicate cashier: EMP107"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR02-20260723-0003"
+      }
+    ]
+  },
+  {
+    "file": "BR03_2026-07-17.csv",
+    "status": "Rejected",
+    "issues": [
+      {
+        "status": "Major",
+        "table": "Customers",
+        "message": "Removed 1 rows with missing CustomerID."
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5265"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5108"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5096 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5310 -> 0109461"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5269 -> 0153162"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5132 -> 012376481"
+      },
+      {
+        "status": "Minor",
+        "table": "Cashiers",
+        "message": "Removed duplicate cashier: EMP100"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR03-20260717-0094"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Invalid PaymentMethod: BR03-20260717-0047"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Invalid PaymentMethod: BR03-20260717-0047"
+      },
+      {
+        "status": "Major",
+        "table": "Transactions",
+        "message": "Transaction BR03-20260717-0066 references a CustomerID not found in Customers table"
+      }
+    ]
+  },
+  {
+    "file": "BR03_2026-07-21.csv",
+    "status": "Rejected",
+    "issues": [
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5173"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5030"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Removed duplicate customer: C5337"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5184 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5011 -> 0157781"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5116 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad email: C5257 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Products",
+        "message": "Removed duplicate product: P2038"
+      },
+      {
+        "status": "Major",
+        "table": "Transactions",
+        "message": "Removed 1 rows with missing TransactionID."
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR03-20260721-0084"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR03-20260721-0080"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Invalid Quantity: BR03-20260721-0018 -> None"
+      }
+    ]
+  },
+  {
+    "file": "BR04_2026-07-20.csv",
+    "status": "Rejected",
+    "issues": [
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5062 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5261 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5161 -> 01557382"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5113 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5194 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5264 -> 0159864"
+      },
+      {
+        "status": "Major",
+        "table": "Products",
+        "message": "Removed 1 rows with missing ProductID."
+      },
+      {
+        "status": "Minor",
+        "table": "Cashiers",
+        "message": "Removed duplicate cashier: EMP110"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR04-20260720-0079"
+      },
+      {
+        "status": "Major",
+        "table": "Transactions",
+        "message": "Missing ProductID: BR04-20260720-0017"
+      },
+      {
+        "status": "Major",
+        "table": "Transactions",
+        "message": "Transaction BR04-20260720-0017 references a ProductID not found in Products table"
+      }
+    ]
+  },
+  {
+    "file": "BR04_2026-07-22.csv",
+    "status": "Processed",
+    "issues": [
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5138 -> 01503995"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5316 -> 010207770"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Invalid loyalty tier: C5170"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5216 -> 01130"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad email: C5264 -> nour.naguib876 [at] example.com"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5135 -> 011512"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5256 -> nan"
+      },
+      {
+        "status": "Minor",
+        "table": "Products",
+        "message": "Removed duplicate product: P2019"
+      },
+      {
+        "status": "Minor",
+        "table": "Products",
+        "message": "Removed duplicate product: P2029"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR04-20260722-0026"
+      }
+    ]
+  },
+  {
+    "file": "BR05_2026-07-24.csv",
+    "status": "Processed",
+    "issues": [
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5152 -> 010918"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5117 -> 01270"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5006 -> 01043"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5196 -> 01559770"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad email: C5242 -> ali.elsayed651 [at] example.com"
+      },
+      {
+        "status": "Minor",
+        "table": "Customers",
+        "message": "Bad phone: C5198 -> 01502"
+      },
+      {
+        "status": "Minor",
+        "table": "Cashiers",
+        "message": "Removed duplicate cashier: EMP111"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Removed duplicate transaction: BR05-20260724-0030"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Invalid DiscountPercent: BR05-20260724-0002 -> None"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Unparseable TransactionDate: BR05-20260724-0010"
+      },
+      {
+        "status": "Minor",
+        "table": "Transactions",
+        "message": "Unparseable TransactionDate: BR05-20260724-0066"
+      }
+    ]
+  }
+]
