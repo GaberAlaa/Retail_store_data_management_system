@@ -1,17 +1,25 @@
 from Modules.DBconnection import get_connection
+from Dashboard.components.load_data import load_data
 import pandas as pd
+import numpy as np
+import matplotlib as plt
+import seaborn as sns
 import streamlit as st
 
-@st.cache_data
-def load_data():
-    engine = get_connection()
-    transactions = pd.read_sql("SELECT * FROM Transactions", engine)
-    products = pd.read_sql("SELECT * FROM Products", engine)
-    customers = pd.read_sql("SELECT * FROM Customers", engine)
-    branches = pd.read_sql("SELECT * FROM Branches", engine)
-    cashiers = pd.read_sql("SELECT * FROM Cashiers", engine)
-    return transactions, products, customers, branches, cashiers
 
-load_data()
 
-st.write("hello world")
+# sales_df= load_data()
+# =================
+import streamlit as st
+ 
+st.set_page_config(page_title="NovaMart Dashboard", layout="wide")
+ 
+pages = [
+    st.Page("Dashboard/pages/overview.py", title="Overview"),
+    st.Page("Dashboard/pages/Sales.py", title="Sales"),
+    st.Page("Dashboard/pages/Customer.py", title="Customers"),
+]
+ 
+navigation = st.navigation(pages)
+navigation.run()
+ 
